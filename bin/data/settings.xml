@@ -1,0 +1,35 @@
+<parameters>
+	<FrameRate>60.01</FrameRate>
+	<Color_Windows>255, 0, 0, 1</Color_Windows>
+	<OnOff_Windows>0</OnOff_Windows>
+	<Color_Frames>255, 0, 0, 1</Color_Frames>
+	<OnOff_Frames>0</OnOff_Frames>
+	<Color_Lines>255, 0, 0, 1</Color_Lines>
+	<OnOff_Lines>0</OnOff_Lines>
+	<Color_Points>255, 0, 0, 1</Color_Points>
+	<OnOff_Points>0</OnOff_Points>
+	<Color_Cross>255, 0, 0, 1</Color_Cross>
+	<OnOff_Cross>0</OnOff_Cross>
+	<Color_Numbers>255, 0, 0, 1</Color_Numbers>
+	<OnOff_Numbers>0</OnOff_Numbers>
+<Main_-_Windows>
+		<FrameRate>60.02</FrameRate>
+		<Canon_On___Off>0</Canon_On___Off>
+		<Color_Windows>255, 0, 0, 255</Color_Windows>
+		<OnOff_Windows>0</OnOff_Windows>
+		<Color_Frames>255, 0, 0, 255</Color_Frames>
+		<OnOff_Frames>0</OnOff_Frames>
+		<Color_Lines>255, 0, 0, 255</Color_Lines>
+		<OnOff_Lines>0</OnOff_Lines>
+		<Color_Points>255, 0, 0, 255</Color_Points>
+		<OnOff_Points>0</OnOff_Points>
+		<Color_Cross>255, 0, 0, 255</Color_Cross>
+		<OnOff_Cross>0</OnOff_Cross>
+		<Color_Numbers>255, 0, 0, 255</Color_Numbers>
+		<OnOff_Numbers>0</OnOff_Numbers>
+		<xPos>0</xPos>
+		<yPos>0</yPos>
+		<xScale>0</xScale>
+        <yScale>0</xScale>
+	</Main_-_Windows>
+</parameters>
