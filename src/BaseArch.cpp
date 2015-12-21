@@ -7,7 +7,6 @@
 //
 
 
-
 #include "BaseArch.h"
 
 //--------------------------------------------------------------
@@ -37,28 +36,28 @@ void BaseArch::setupDefault(){
 //    font.setup("Vera.ttf", 1.0, 1024, true, 8, 1.0);
 //    font.addFont("VeraMono-Bold.ttf");
 
-    float _sizeRatio = 1.5; // 1.5 : 1
+    float _sizeRatio = 1.4; // 1.5 : 1
     
     csv.clear();
-    csv.loadFile(ofToDataPath("facadeData.csv"));
+    csv.loadFile(ofToDataPath("facadeData_8x8.csv"));
     
     fassadeCorner[0] = ofVec2f( ofToFloat(csv.data[0][0]), ofToFloat(csv.data[0][1]) ) * _sizeRatio;
-    fassadeCorner[1] = ofVec2f( ofToFloat(csv.data[22][0]), ofToFloat(csv.data[22][1]) ) * _sizeRatio;
-    fassadeCorner[2] = ofVec2f( ofToFloat(csv.data[53][0]), ofToFloat(csv.data[53][1]) ) * _sizeRatio;
-    fassadeCorner[3] = ofVec2f( ofToFloat(csv.data[31][0]), ofToFloat(csv.data[31][1]) ) * _sizeRatio;
+    fassadeCorner[1] = ofVec2f( ofToFloat(csv.data[18][0]), ofToFloat(csv.data[18][1]) ) * _sizeRatio;
+    fassadeCorner[2] = ofVec2f( ofToFloat(csv.data[26][0]), ofToFloat(csv.data[26][1]) ) * _sizeRatio;
+    fassadeCorner[3] = ofVec2f( ofToFloat(csv.data[27][0]), ofToFloat(csv.data[27][1]) ) * _sizeRatio;
 
 
-    for (int j=0; j<110; j++) {
+    for (int j=0; j<64; j++) {
         for (int i=0; i<4; i++) {
-            float _x = ofToFloat(csv.data[j+54][i*2]) * _sizeRatio;
-            float _y = ofToFloat(csv.data[j+54][i*2+1]) * _sizeRatio;
+            float _x = ofToFloat(csv.data[j+36][i*2]) * _sizeRatio;
+            float _y = ofToFloat(csv.data[j+36][i*2+1]) * _sizeRatio;
             windowsCorner[j][i] = ofVec2f( _x, _y );
         }
     }
 
-    for (int j=0; j<5; j++) {
-        for (int i=0; i<22; i++) {
-            int _index = i + j * 22;
+    for (int j=0; j<8; j++) {
+        for (int i=0; i<8; i++) {
+            int _index = i + j * 8;
             float _x = (windowsCorner[_index][1].x + windowsCorner[_index][0].x) * 0.5;
             float _y = (windowsCorner[_index][3].y + windowsCorner[_index][0].y) * 0.5;
             windowsOriginCenter[i][j] = ofVec2f( _x, _y );
@@ -66,43 +65,43 @@ void BaseArch::setupDefault(){
     }
 
     
-    for (int i=1; i<23; i++) {
-        float _x = ofToFloat(csv.data[i][0]) * _sizeRatio;
-        float _y = abs(windowsCorner[i-1][1].y + ofToFloat(csv.data[i-1][1]) * _sizeRatio ) * 0.5;
-        framesCenter[i][0] = ofVec2f( _x, _y );
-    }
+//    for (int i=0; i<9; i++) {
+//        float _x = ofToFloat(csv.data[i][0]) * _sizeRatio;
+//        float _y = abs(windowsCorner[i-1][1].y + ofToFloat(csv.data[i-1][1]) * _sizeRatio ) * 0.5;
+//        framesCenter[i][0] = ofVec2f( _x, _y );
+//    }
+//    
+//    for (int i=0; i<9; i++) {
+//        float _x = ofToFloat(csv.data[i+27][0]) * _sizeRatio;
+//        float _y = abs(windowsCorner[i+56][3].y + ofToFloat(csv.data[i+27][1]) * _sizeRatio) * 0.5;
+//        framesCenter[i][8] = ofVec2f( _x, _y );
+//    }
     
-    for (int i=1; i<23; i++) {
-        float _x = ofToFloat(csv.data[i+31][0]) * _sizeRatio;
-        float _y = abs(windowsCorner[i+88][3].y + ofToFloat(csv.data[i+31][1]) * _sizeRatio) * 0.5;
-        framesCenter[i][5] = ofVec2f( _x, _y );
-    }
-    
-    for (int j=1; j<5; j++) {
-        for (int i=1; i<22; i++) {
-            float _x = abs(windowsCorner[i-1][2].x + windowsCorner[i][3].x) * 0.5;
-            float _y = abs(windowsCorner[i-1+22*(j-1)][2].y + windowsCorner[i-1+22*(j)][1].y) * 0.5;
+    for (int j=0; j<9; j++) {
+        for (int i=0; i<9; i++) {
+            float _x = ofToFloat(csv.data[i][0]) * _sizeRatio;
+            float _y = ofToFloat(csv.data[j+9][1]) * _sizeRatio;
             framesCenter[i][j] = ofVec2f( _x, _y );
         }
     }
 
-    for (int j=1; j<5; j++) {
-        float _x = abs(ofToFloat(csv.data[(j-1)+23][0]) * _sizeRatio + windowsCorner[j*22][0].x) * 0.5;
-        float _y = ofToFloat(csv.data[j-1+23][1]) * _sizeRatio;
-        framesCenter[0][j] = ofVec2f( _x, _y );
-    }
+//    for (int j=1; j<8; j++) {
+//        float _x = abs(ofToFloat(csv.data[(j-1)+9][0]) * _sizeRatio + windowsCorner[j*8][0].x) * 0.5;
+//        float _y = ofToFloat(csv.data[j-1+9][1]) * _sizeRatio;
+//        framesCenter[0][j] = ofVec2f( _x, _y );
+//    }
+//
+//    
+//    for (int j=1; j<8; j++) {
+//        float _x = abs(ofToFloat(csv.data[(j-1)+18][0]) * _sizeRatio + windowsCorner[(j-1)*22+21][1].x) * 0.5;
+//        float _y = ofToFloat(csv.data[j-1+9][1]) * _sizeRatio;
+//        framesCenter[22][j] = ofVec2f( _x, _y );
+//    }
 
-    
-    for (int j=1; j<5; j++) {
-        float _x = abs(ofToFloat(csv.data[(j-1)+27][0]) * _sizeRatio + windowsCorner[(j-1)*22+21][1].x) * 0.5;
-        float _y = ofToFloat(csv.data[j-1+23][1]) * _sizeRatio;
-        framesCenter[22][j] = ofVec2f( _x, _y );
-    }
-
-    framesCenter[0][0] = (windowsCorner[0][0] + fassadeCorner[0]) * 0.5;
-    framesCenter[22][0] = (windowsCorner[21][1] + fassadeCorner[1]) * 0.5;
-    framesCenter[22][5] = (windowsCorner[109][2] + fassadeCorner[2]) * 0.5;
-    framesCenter[0][5] = (windowsCorner[88][3] + fassadeCorner[3]) * 0.5;
+//    framesCenter[0][0] = (windowsCorner[0][0] + fassadeCorner[0]) * 0.5;
+//    framesCenter[9][0] = (windowsCorner[7][1] + fassadeCorner[1]) * 0.5;
+//    framesCenter[9][9] = (windowsCorner[63][2] + fassadeCorner[2]) * 0.5;
+//    framesCenter[0][9] = (windowsCorner[56][3] + fassadeCorner[3]) * 0.5;
     
     
     mainOffSetXPos = (ofGetWidth() - (fassadeCorner[0].x + fassadeCorner[1].x)) * 0.5;
@@ -118,6 +117,8 @@ void BaseArch::setupDefault(){
 //--------------------------------------------------------------
 void BaseArch::guideFrames(ofColor _c){
     
+    ofEnableAlphaBlending();
+
     ofPushMatrix();
     ofPushStyle();
     
@@ -129,7 +130,7 @@ void BaseArch::guideFrames(ofColor _c){
     float _hRS = fassadeCorner[3].y;
     ofDrawRectangle( _xRS, _yRS, _wRS, _hRS );
     
-    for (int i=0; i<21; i++) {
+    for (int i=0; i<7; i++) {
         float _x = windowsCorner[i][1].x;
         float _y = fassadeCorner[0].y;
         float _w = windowsCorner[i+1][0].x - windowsCorner[i][1].x;
@@ -137,9 +138,9 @@ void BaseArch::guideFrames(ofColor _c){
         ofDrawRectangle( _x, _y, _w, _h );
     }
     
-    float _xRE = windowsCorner[21][1].x;
+    float _xRE = windowsCorner[7][1].x;
     float _yRE = fassadeCorner[0].y;
-    float _wRE = fassadeCorner[1].x - windowsCorner[21][1].x;
+    float _wRE = fassadeCorner[1].x - windowsCorner[7][1].x;
     float _hRE = fassadeCorner[3].y;
     ofDrawRectangle( _xRE, _yRE, _wRE, _hRE );
     
@@ -150,24 +151,27 @@ void BaseArch::guideFrames(ofColor _c){
     float _hCS = fassadeCorner[0].y - windowsCorner[0][0].y;
     ofDrawRectangle( _xCS, _yCS, _wCS, _hCS );
     
-    for (int i=0; i<4; i++) {
+    for (int i=0; i<7; i++) {
         float _x = fassadeCorner[0].x;
-        float _y = windowsCorner[i*22][3].y;
+        float _y = windowsCorner[i*8][3].y;
         float _w = fassadeCorner[1].x - fassadeCorner[0].x;
-        float _h = windowsCorner[(i+1)*22][0].y - windowsCorner[i*22][3].y;
+        float _h = windowsCorner[(i+1)*8][0].y - windowsCorner[i*8][3].y;
         ofDrawRectangle( _x, _y, _w, _h );
     }
     
     float _xCE = fassadeCorner[0].x;
-    float _yCE = windowsCorner[88][3].y;
+    float _yCE = windowsCorner[63][3].y;
     float _wCE = fassadeCorner[1].x - fassadeCorner[0].x;
-    float _hCE = fassadeCorner[3].y - windowsCorner[88][3].y;
+    float _hCE = fassadeCorner[3].y - windowsCorner[63][3].y;
     ofDrawRectangle( _xCE, _yCE, _wCE, _hCE );
     
     
     ofPopStyle();
     ofPopMatrix();
     
+    
+    ofDisableAlphaBlending();
+
 }
 
 
@@ -182,14 +186,14 @@ void BaseArch::guideLines(ofColor _c){
     
     ofSetColor(_c);
     
-    for (int i=0; i<22-1; i++) {
-        for (int j=0; j<5; j++) {
+    for (int i=0; i<8-1; i++) {
+        for (int j=0; j<8; j++) {
             ofDrawLine( windowsOriginCenter[i][j].x, windowsOriginCenter[i][j].y, windowsOriginCenter[i+1][j].x, windowsOriginCenter[i+1][j].y );
         }
     }
 
-    for (int i=0; i<22; i++) {
-        for (int j=0; j<5-1; j++) {
+    for (int i=0; i<8; i++) {
+        for (int j=0; j<8-1; j++) {
             ofDrawLine( windowsOriginCenter[i][j].x, windowsOriginCenter[i][j].y, windowsOriginCenter[i][j+1].x, windowsOriginCenter[i][j+1].y );
         }
     }
@@ -198,14 +202,15 @@ void BaseArch::guideLines(ofColor _c){
     ofSetColor(_c);
 
     
-    for (int i=0; i<23-1; i++) {
-        for (int j=0; j<6; j++) {
+
+    for (int i=0; i<9-1; i++) {
+        for (int j=0; j<9; j++) {
             ofDrawLine( framesCenter[i][j].x, framesCenter[i][j].y, framesCenter[i+1][j].x, framesCenter[i+1][j].y );
         }
     }
     
-    for (int i=0; i<23; i++) {
-        for (int j=0; j<6-1; j++) {
+    for (int i=0; i<9; i++) {
+        for (int j=0; j<9-1; j++) {
             ofDrawLine( framesCenter[i][j].x, framesCenter[i][j].y, framesCenter[i][j+1].x, framesCenter[i][j+1].y );
         }
     }
@@ -235,7 +240,7 @@ void BaseArch::guidePoints(ofColor _c){
 
     ofSetColor(_c);
     
-    for (int i=0; i<110; i++) {
+    for (int i=0; i<64; i++) {
         for (int j=0; j<4; j++) {
             float _xS = windowsCorner[i][j].x;
             float _yS = windowsCorner[i][j].y;
@@ -245,8 +250,8 @@ void BaseArch::guidePoints(ofColor _c){
 
     ofSetColor(_c, 120);
 
-    for (int i=0; i<23; i++) {
-        for (int j=0; j<6; j++) {
+    for (int i=0; i<9; i++) {
+        for (int j=0; j<9; j++) {
             float _xS = framesCenter[i][j].x;
             float _yS = framesCenter[i][j].y;
             ofDrawCircle( _xS, _yS, _size );
@@ -281,7 +286,7 @@ void BaseArch::guideCrossPoints(ofColor _c, float _size){
     
     ofSetColor(_c);
     
-    for (int i=0; i<110; i++) {
+    for (int i=0; i<64; i++) {
         for (int j=0; j<4; j++) {
             float _xS = windowsCorner[i][j].x;
             float _yS = windowsCorner[i][j].y;
@@ -292,8 +297,8 @@ void BaseArch::guideCrossPoints(ofColor _c, float _size){
     
     ofSetColor(_c, 120);
     
-    for (int i=0; i<23; i++) {
-        for (int j=0; j<6; j++) {
+    for (int i=0; i<9; i++) {
+        for (int j=0; j<9; j++) {
             float _xS = framesCenter[i][j].x;
             float _yS = framesCenter[i][j].y;
             ofDrawLine( _xS - _size, _yS, _xS + _size, _yS );
@@ -370,14 +375,15 @@ void BaseArch::drawEdgeCover(ofColor _c){
 //--------------------------------------------------------------
 void BaseArch::drawPointNumber( ofColor _c ){
     
-    ofEnableAlphaBlending();
 
     ofPushMatrix();
     
 
     ofPushStyle();
     
-    
+    ofEnableAlphaBlending();
+
+
     ofSetColor(_c);
     
 //    for (int i=0; i<110; i++) {
@@ -393,8 +399,8 @@ void BaseArch::drawPointNumber( ofColor _c ){
     
     ofSetColor(_c);
     
-    for (int i=0; i<23; i++) {
-        for (int j=0; j<6; j++) {
+    for (int i=0; i<9; i++) {
+        for (int j=0; j<9; j++) {
             float _xS = framesCenter[i][j].x;
             float _yS = framesCenter[i][j].y;
             string _s = ofToHex(&windowsCornerNumber[i+j]);
@@ -413,12 +419,13 @@ void BaseArch::drawPointNumber( ofColor _c ){
 //    }
     
     
+    ofDisableAlphaBlending();
+
     ofPopStyle();
 
 
     ofPopMatrix();
     
-    ofDisableAlphaBlending();
 
     
 }
@@ -440,8 +447,8 @@ void BaseArch::drawWindows( ofColor _c ){
     float _h = windowsCorner[0][0].y - windowsCorner[0][3].y;
     
 
-    for (int i=0; i<22; i++) {
-        for (int j=0; j<5; j++) {
+    for (int i=0; i<8; i++) {
+        for (int j=0; j<8; j++) {
             float _x = windowsOriginCenter[i][j].x - _w * 0.5;
             float _y = windowsOriginCenter[i][j].y - _h * 0.5;
 
@@ -567,9 +574,9 @@ void BaseArch::drawWindowNumber( ofColor _c ){
 //--------------------------------------------------------------
 void BaseArch::randomNumberGenerator(){
     
-    windowsCornerNumber.resize(440);
-    for (int j=0; j<440; j++) {
-            float _r = ofRandom(440);
+    windowsCornerNumber.resize(256);
+    for (int j=0; j<256; j++) {
+            float _r = ofRandom(256);
             windowsCornerNumber[j] = _r;
     }
 

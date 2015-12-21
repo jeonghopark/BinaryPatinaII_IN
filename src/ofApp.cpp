@@ -52,91 +52,91 @@ void ofApp::setup(){
     qualityMain = OF_IMAGE_QUALITY_WORST;
 
 
-    webCamHD.listDevices();
-    webCamHD.setDeviceID(WEBCAM_ID);
-    webCamHD.setup(WEBCAM_WIDTH, WEBCAM_HEIGHT);
+//    webCamHD.listDevices();
+//    webCamHD.setDeviceID(WEBCAM_ID);
+//    webCamHD.setup(WEBCAM_WIDTH, WEBCAM_HEIGHT);
     
     leapMotion.open();
 
     baseArch.inputFont( font );
-
+    baseArch.setupDefault();
 
     glungeWinter.inputBaseArch( baseArch );
     glungeWinter.setup();
 
     
-    liveCamGlitch.inputBaseArch( baseArch );
-    liveCamGlitch.inputMidiInput(midiInput);
-    liveCamGlitch.inputWebCam( webCamHD );
-    liveCamGlitch.setup();
-    
-
-    labyrinth.inputBaseArch( baseArch );
-    labyrinth.setup();
-    labyrinthOldNumParticle = 0;
-    labyrinthOldType = 0;
-    labyrinthChangeNum = false;
-    
-    
-    calligraphy.inputBaseArch( baseArch );
-    calligraphy.inputFFTP( fft );
-    calligraphy.setup();
-
-    
-    pluto.inputBaseArch( baseArch );
-    pluto.setup();
-    
-
-    indiaTower.inputMIDI(midiInput);
-    indiaTower.inputBaseArch( baseArch );
-    indiaTower.inputFFTP( fft );
-    indiaTower.setup();
-    
-    
-    
-    trierFlyingCam.inputBaseArch( baseArch );
-    trierFlyingCam.inputLeapMotion( leapMotion );
-    trierFlyingCam.setup();
-    
-    
-    cubicMapFlyingCam.inputBaseArch( baseArch );
-    cubicMapFlyingCam.inputLeapMotion( leapMotion );
-    cubicMapFlyingCam.setup();
-    
-
-    moonCreator.inputBaseArch( baseArch );
-    moonCreator.inputFFTP( fft );
-    moonCreator.inputBaseArch( baseArch );
-    moonCreator.setup();
-    
-    
-    lineVideo.inputBaseArch( baseArch);
-    lineVideo.inputMIDI( midiInput );
-    lineVideo.setup();
-    lineVideo.inputWebCam( webCamHD );
-
-    
-    movingObjects.inputBaseArch( baseArch );
-    movingObjects.inputFont( font );
-    movingObjects.setup();
-    
-    
-    droneAttack.inputBaseArch( baseArch );
-    droneAttack.inputFFTP( fft );
-    droneAttack.inputFont( font );
-    droneAttack.setup();
-
-    
-    webLiveCam.inputBaseArch( baseArch );
-    webLiveCam.setup();
-    
-    
-    nightVision.inputBaseArch( baseArch );
-    nightVision.setup();
-    
-//    speechVideoSynth.inputMIDI(midiInput);
-    speechVideoSynth.inputBaseArch( baseArch );
-    speechVideoSynth.setup();
+//    liveCamGlitch.inputBaseArch( baseArch );
+//    liveCamGlitch.inputMidiInput(midiInput);
+//    liveCamGlitch.inputWebCam( webCamHD );
+//    liveCamGlitch.setup();
+//    
+//
+//    labyrinth.inputBaseArch( baseArch );
+//    labyrinth.setup();
+//    labyrinthOldNumParticle = 0;
+//    labyrinthOldType = 0;
+//    labyrinthChangeNum = false;
+//    
+//    
+//    calligraphy.inputBaseArch( baseArch );
+//    calligraphy.inputFFTP( fft );
+//    calligraphy.setup();
+//
+//    
+//    pluto.inputBaseArch( baseArch );
+//    pluto.setup();
+//    
+//
+//    indiaTower.inputMIDI(midiInput);
+//    indiaTower.inputBaseArch( baseArch );
+//    indiaTower.inputFFTP( fft );
+//    indiaTower.setup();
+//    
+//    
+//    
+//    trierFlyingCam.inputBaseArch( baseArch );
+//    trierFlyingCam.inputLeapMotion( leapMotion );
+//    trierFlyingCam.setup();
+//    
+//    
+//    cubicMapFlyingCam.inputBaseArch( baseArch );
+//    cubicMapFlyingCam.inputLeapMotion( leapMotion );
+//    cubicMapFlyingCam.setup();
+//    
+//
+//    moonCreator.inputBaseArch( baseArch );
+//    moonCreator.inputFFTP( fft );
+//    moonCreator.inputBaseArch( baseArch );
+//    moonCreator.setup();
+//    
+//    
+//    lineVideo.inputBaseArch( baseArch);
+//    lineVideo.inputMIDI( midiInput );
+//    lineVideo.setup();
+//    lineVideo.inputWebCam( webCamHD );
+//
+//    
+//    movingObjects.inputBaseArch( baseArch );
+//    movingObjects.inputFont( font );
+//    movingObjects.setup();
+//    
+//    
+//    droneAttack.inputBaseArch( baseArch );
+//    droneAttack.inputFFTP( fft );
+//    droneAttack.inputFont( font );
+//    droneAttack.setup();
+//
+//    
+//    webLiveCam.inputBaseArch( baseArch );
+//    webLiveCam.setup();
+//    
+//    
+//    nightVision.inputBaseArch( baseArch );
+//    nightVision.setup();
+//    
+////    speechVideoSynth.inputMIDI(midiInput);
+//    speechVideoSynth.inputBaseArch( baseArch );
+//    speechVideoSynth.setup();
     
     
     fullScreen = false;
@@ -498,6 +498,10 @@ void ofApp::update(){
                 
             
                 ofPushMatrix();
+
+                ofPushStyle();
+                ofEnableAlphaBlending();
+
                 ofTranslate(-19, 0);
                 string _title1[6] = {"E", "D", "W", "A", "R", "D"};
                 for (int i=0; i<6; i++) {
@@ -511,6 +515,10 @@ void ofApp::update(){
                     float _y = baseArch.windowsOriginCenter[11 + i][1].y - _windowH * 0.5;
                     fontVideo.draw(_title2[i], 100, _x, _y - 30);
                 }
+                
+                ofDisableAlphaBlending();
+                ofPopStyle();
+                
                 ofPopMatrix();
 
 //                string _title3[11] = {"E", "x", "-", " ", "N", "S", "A"};
@@ -578,6 +586,9 @@ void ofApp::update(){
                 ofPopStyle();
                 
                 ofPushMatrix();
+                ofPushStyle();
+                ofEnableAlphaBlending();
+
                 ofTranslate(-19, 0);
                 string _title1[8] = {"S", "H", "O", "S", "H", "A", "N", "A"};
                 for (int i=0; i<8; i++) {
@@ -597,6 +608,11 @@ void ofApp::update(){
                     float _y = baseArch.windowsOriginCenter[11 + i][2].y - _windowH * 0.5;
                     fontVideo.draw(_title3[i], 100, _x, _y - 30);
                 }
+                
+                ofDisableAlphaBlending();
+                ofPopStyle();
+
+                
                 ofPopMatrix();
                 
 //                ofPushMatrix();
@@ -644,6 +660,10 @@ void ofApp::update(){
                 ofPopStyle();
                 
                 ofPushMatrix();
+                
+                ofPushStyle();
+                ofEnableAlphaBlending();
+                
                 ofTranslate(-19, 0);
                 string _title1[4] = {"E", "R", "I", "C"};
                 for (int i=0; i<4; i++) {
@@ -663,6 +683,10 @@ void ofApp::update(){
                     float _y = baseArch.windowsOriginCenter[11 + i][2].y - _windowH * 0.5;
                     fontVideo.draw(_title3[i], 100, _x, _y - 30);
                 }
+                
+                ofDisableAlphaBlending();
+                ofPopStyle();
+                
                 ofPopMatrix();
 
 
@@ -684,6 +708,10 @@ void ofApp::update(){
                 ofPopStyle();
                 
                 ofPushMatrix();
+                
+                ofPushStyle();
+                ofEnableAlphaBlending();
+                
                 ofTranslate(-19, 0);
                 string _title1[7] = {"M", "I", "C", "H", "A", "E", "L"};
                 for (int i=0; i<7; i++) {
@@ -703,6 +731,10 @@ void ofApp::update(){
                     float _y = baseArch.windowsOriginCenter[11 + i][2].y - _windowH * 0.5;
                     fontVideo.draw(_title3[i], 100, _x, _y - 30);
                 }
+                
+                ofDisableAlphaBlending();
+                ofPopStyle();
+                
                 ofPopMatrix();
 
             }
@@ -932,9 +964,9 @@ void ofApp::draw(){
     ofDisableAlphaBlending();
 
 
-    ofEnableAlphaBlending();
-    baseArch.drawEdgeCover( ofColor(0, 255) );
-    ofDisableAlphaBlending();
+//    ofEnableAlphaBlending();
+//    baseArch.drawEdgeCover( ofColor(0, 255) );
+//    ofDisableAlphaBlending();
     
     
     ofEnableAlphaBlending();
@@ -1175,7 +1207,7 @@ void ofApp::keyReleased(int key){
     }
 
     
-    cout << key << endl;
+//    cout << key << endl;
     
     if (key == 161) sceneSelect[0] = !sceneSelect[0];
     if (key == 8220) sceneSelect[1] = !sceneSelect[1];

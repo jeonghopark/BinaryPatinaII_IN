@@ -15,13 +15,6 @@
 
 #include "ofxCsv.h"
 
-#define COLUMN_SIZE 23
-#define ROW_SIZE 6
-#define FRAMEWEIGHT 13
-
-#define WINDOWS_COLUMN = 22;
-#define WINDOWS_Row = 5;
-
 using namespace wng;
 
 class BaseArch {
@@ -31,9 +24,9 @@ public:
     BaseArch();
     ~BaseArch();
     
-    ofVec2f windowsOriginCenter[22][5];
-    ofVec2f windowsCorner[110][4];
-    ofVec2f framesCenter[23][6];
+    ofVec2f windowsOriginCenter[8][8];
+    ofVec2f windowsCorner[64][4];
+    ofVec2f framesCenter[9][9];
     ofVec2f fassadeCorner[4];
     
     vector<float> windowsCornerNumber;
