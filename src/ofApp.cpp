@@ -65,19 +65,19 @@ void ofApp::setup(){
     glungeWinter.setup();
 
     
-//    liveCamGlitch.inputBaseArch( baseArch );
-//    liveCamGlitch.inputMidiInput(midiInput);
-//    liveCamGlitch.inputWebCam( webCamHD );
-//    liveCamGlitch.setup();
-//    
-//
-//    labyrinth.inputBaseArch( baseArch );
-//    labyrinth.setup();
-//    labyrinthOldNumParticle = 0;
-//    labyrinthOldType = 0;
-//    labyrinthChangeNum = false;
-//    
-//    
+    liveCamGlitch.inputBaseArch( baseArch );
+    liveCamGlitch.inputMidiInput(midiInput);
+    liveCamGlitch.inputWebCam( webCamHD );
+    liveCamGlitch.setup();
+    
+
+    labyrinth.inputBaseArch( baseArch );
+    labyrinth.setup();
+    labyrinthOldNumParticle = 0;
+    labyrinthOldType = 0;
+    labyrinthChangeNum = false;
+    
+    
 //    calligraphy.inputBaseArch( baseArch );
 //    calligraphy.inputFFTP( fft );
 //    calligraphy.setup();

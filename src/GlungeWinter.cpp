@@ -63,13 +63,13 @@ void GlungeWinter::drawBack() {
     
     ofPushStyle();
     
-    for (int j=0; j<4; j++) {
+    for (int j=0; j<8; j++) {
         for (int i=0; i<15; i++) {
             ofBeginShape();
-            ofSetColor( ofColor::fromHsb(ofRandom(255), ofRandom(255), ofRandom(255), 50) );
+            ofSetColor(ofColor::fromHsb(ofRandom(255), ofRandom(255), ofRandom(255), 50));
             
-            float _centerX = baseArch->framesCenter[11][1].x;
-            float _centerY = (baseArch->windowsCorner[10+22*j][2].y + baseArch->windowsCorner[10+22*(j+1)][0].y) * 0.5;
+            float _centerX = baseArch->framesCenter[4][1].x;
+            float _centerY = (baseArch->windowsCorner[3+8*j][2].y + baseArch->windowsCorner[3+8*(j+1)][0].y) * 0.5;
             
             float _xL = _centerX - i * 40;
             float _xR = _centerX + i * 40;
@@ -87,14 +87,14 @@ void GlungeWinter::drawBack() {
     }
     
     
-    for (int j=0; j<22-1; j++) {
-        for (int i=0; i<10; i++) {
+    for (int j=0; j<8-1; j++) {
+        for (int i=0; i<3; i++) {
             
             ofBeginShape();
             ofSetColor( ofColor::fromHsb(ofRandom(255), ofRandom(255), ofRandom(255), 50) );
             
             float _centerX = (baseArch->windowsCorner[j][1].x + baseArch->windowsCorner[j+1][0].x) * 0.5;
-            float _centerY = baseArch->windowsOriginCenter[10][2].y;
+            float _centerY = baseArch->windowsOriginCenter[3][2].y;
             
             float _xL = _centerX - 6;
             float _xR = _centerX + 6;
@@ -199,8 +199,8 @@ void GlungeWinter::drawVertical(){
         ofSetColor( verticalColor );
 
         
-        float _centerX = baseArch->framesCenter[11][0].x;
-        float _centerY = (baseArch->windowsCorner[10][0].y + baseArch->fassadeCorner[0].y) * 0.5;
+        float _centerX = baseArch->framesCenter[4][0].x;
+        float _centerY = (baseArch->windowsCorner[3][0].y + baseArch->fassadeCorner[0].y) * 0.5;
         
         float _xL = _centerX - i * 40;
         float _xR = _centerX + i * 40;
@@ -221,7 +221,7 @@ void GlungeWinter::drawVertical(){
     
     ofPushStyle();
     
-    for (int j=0; j<4; j++) {
+    for (int j=0; j<8; j++) {
         for (int i=0; i<15; i++) {
             ofBeginShape();
 //            ofSetColor( ofColor::fromHsb(15, 183, 120, 50) );
@@ -229,8 +229,8 @@ void GlungeWinter::drawVertical(){
             ofSetColor( verticalColor );
 
             
-            float _centerX = baseArch->framesCenter[11][1].x;
-            float _centerY = (baseArch->windowsCorner[10+22*j][2].y + baseArch->windowsCorner[10+22*(j+1)][0].y) * 0.5;
+            float _centerX = baseArch->framesCenter[4][1].x;
+            float _centerY = (baseArch->windowsCorner[3+8*j][2].y + baseArch->windowsCorner[3+8*(j+1)][0].y) * 0.5;
             
             float _xL = _centerX - i * 40;
             float _xR = _centerX + i * 40;
@@ -260,8 +260,8 @@ void GlungeWinter::drawVertical(){
         
         ofSetColor( verticalColor );
         
-        float _centerX = baseArch->framesCenter[11][0].x;
-        float _centerY = (baseArch->windowsCorner[10+22*4][3].y + baseArch->fassadeCorner[2].y) * 0.5;
+        float _centerX = baseArch->framesCenter[4][0].x;
+        float _centerY = (baseArch->windowsCorner[3+4*4][3].y + baseArch->fassadeCorner[2].y) * 0.5;
         
         float _xL = _centerX - i * 40;
         float _xR = _centerX + i * 40;
@@ -296,7 +296,7 @@ void GlungeWinter::drawHorizon(){
         ofSetColor( horizonColor );
         
         float _centerX = (baseArch->fassadeCorner[0].x + baseArch->windowsCorner[0][0].x) * 0.5;
-        float _centerY = baseArch->windowsOriginCenter[10][2].y;
+        float _centerY = baseArch->windowsOriginCenter[3][2].y;
         
         float _xL = _centerX - 6;
         float _xR = _centerX + 6;
@@ -314,8 +314,8 @@ void GlungeWinter::drawHorizon(){
     }
 
     
-    for (int j=0; j<22-1; j++) {
-        for (int i=0; i<10; i++) {
+    for (int j=0; j<8-1; j++) {
+        for (int i=0; i<3; i++) {
 
             ofBeginShape();
             //        ofSetColor( ofColor::fromHsb(15, 183, 120, 50) );
@@ -323,7 +323,7 @@ void GlungeWinter::drawHorizon(){
             ofSetColor( horizonColor );
             
             float _centerX = (baseArch->windowsCorner[j][1].x + baseArch->windowsCorner[j+1][0].x) * 0.5;
-            float _centerY = baseArch->windowsOriginCenter[10][2].y;
+            float _centerY = baseArch->windowsOriginCenter[3][2].y;
             
             float _xL = _centerX - 6;
             float _xR = _centerX + 6;

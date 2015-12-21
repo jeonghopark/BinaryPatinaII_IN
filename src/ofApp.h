@@ -33,7 +33,7 @@
 
 #define WEBCAM_WIDTH 640
 #define WEBCAM_HEIGHT 480
-#define WEBCAM_ID 1
+#define WEBCAM_ID 0
 
 
 class ofApp : public ofBaseApp {
